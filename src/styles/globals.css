@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Prompt";
+  src: url("/fonts/Prompt/Prompt-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Prompt";
+  src: url("/fonts/Prompt/Prompt-Bold.ttf");
+  font-weight: 700;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Prompt";
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
