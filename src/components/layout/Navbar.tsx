@@ -24,7 +24,7 @@ const NavBar: FC = () => {
 };
 
 const AccountButton: FC = () => {
-  const account = "sdfsdfsdf";
+  const account = "0234283423423423";
   const network = { name: "goerli" };
   const balance = 0.1;
 
