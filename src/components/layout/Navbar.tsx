@@ -14,7 +14,7 @@ const NavBar: FC = () => {
         <div className="flex items-center justify-between">
           <IconShieldLock
             size={50}
-            className="cursor-pointer rounded-full border border-sky-800 p-2 text-sky-800 hover:bg-sky-500 hover:text-white"
+            className="flex-none cursor-pointer rounded-full border border-sky-800 p-2 text-sky-800 hover:bg-sky-500 hover:text-white"
           />
           <AccountButton />
         </div>
