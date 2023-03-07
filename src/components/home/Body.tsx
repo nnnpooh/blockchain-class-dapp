@@ -1,8 +1,13 @@
 import { FC, useState } from "react";
 import { Container, Input, Button, Loader } from "@mantine/core";
+import { useWorkingStore } from "@src/utils/stores";
 
 const Body: FC = () => {
-  const [secret, setSecret] = useState("My Super Secret");
+  // const [secret, setSecret] = useState("My Super Secret");
+  const [secret, setSecret] = useWorkingStore((state) => [
+    state.secret,
+    state.setSecret,
+  ]);
   const [text, setText] = useState("");
 
   return (
