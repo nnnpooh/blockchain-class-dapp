@@ -47,8 +47,9 @@ export function useContract() {
           showNotification({
             color: "red",
             title: "Error getting secret",
-            message:
-              "There is an error getting secret. Are you sure you are on the Goerli network?",
+            message: `There is an error getting secret. Are you sure you are on the Goerli network? Did you use the correct contract address (${
+              contractAddress || "[Empty Contract]"
+            })?`,
           });
         })
         .finally(() => setIsLoading(false));
@@ -67,9 +68,20 @@ export function useContract() {
     const secret = getContract();
     if (!secret) return null;
     setIsLoading(true);
-    const tx = await secret.changeSecret(_secret);
-    await tx.wait();
-    fetchSecret();
+    try {
+      const tx = await secret.changeSecret(_secret);
+      await tx.wait();
+      fetchSecret();
+    } catch (err) {
+      setIsLoading(false);
+      showNotification({
+        color: "red",
+        title: "Error writing secret",
+        message: `There is an error writing a secret. Are you sure you are on the owner of the contract ${
+          contractAddress || "[Empty Contract]"
+        }?`,
+      });
+    }
   }
 
   return { writeSecret, isLoading, isError };
